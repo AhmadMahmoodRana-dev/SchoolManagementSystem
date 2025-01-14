@@ -8,34 +8,34 @@ import RenderSelect from "../Select/RenderSelect";
 import useApisStore from "@/store/Apis.store";
 import { FaPlus } from "react-icons/fa";
 
-
 const AddClass = () => {
-
   // OPTIONS
-const { getData, fetchdata } = useApisStore();
-useEffect(() => {
-  getData("http://localhost:4000/api/form/employee", "employee");
-}, []);
+  const { getData, fetchdata,setData } = useApisStore();
+  useEffect(() => {
+    getData("http://localhost:4000/api/form/employee", "employee");
+  }, []);
+
+  const [selectData, setSelectData] = useState([]);
+
+  useEffect(() => {
+    if (fetchdata?.employee) {
+      const filteredData = fetchdata.employee.filter(
+        (employee) => employee.employeeRole === "Teacher"
+      );
+
+      const formattedData = filteredData.map((data) => ({
+        value: data._id,
+        label: data.employeeName,
+      }));
+
+      setSelectData(formattedData);
+    }
+  }, [fetchdata]);
+
+  // FORM
 
 
-const [selectData, setSelectData] = useState([]);
 
-useEffect(() => {
-  if (fetchdata?.employee) {
-    const filteredData = fetchdata.employee.filter(
-      (employee) => employee.employeeRole === "Teacher"
-    );
-
-    const formattedData = filteredData.map((data) => ({
-      value: data._id,
-      label: data.employeeName, // Replace with the appropriate field for the label
-    }));
-
-    setSelectData(formattedData);
-  }
-}, [fetchdata]);
-
-// FORM
 
   const formik = useFormik({
     initialValues: {
@@ -45,7 +45,7 @@ useEffect(() => {
     },
     validationSchema: classFormSchema,
     onSubmit: (values, { resetForm }) => {
-      console.log("Class Values", values);
+      setData("http://localhost:4000/api/form/classes",values)
       resetForm();
     },
   });
@@ -80,13 +80,17 @@ useEffect(() => {
           />
           <RenderSelect
             name="classTeacherId"
-            
             options={selectData}
-
             label="Select Class Teacher*"
             formik={formik}
           />
-          <button type="submit" className="bg-[#ffbc5c] py-2 px-6 rounded-3xl text-xl flex gap-3 justify-center items-center hover:opacity-50"><FaPlus/>Create</button>
+          <button
+            type="submit"
+            className="bg-[#ffbc5c] py-2 px-6 rounded-3xl text-xl flex gap-3 justify-center items-center hover:opacity-50"
+          >
+            <FaPlus />
+            Create
+          </button>
         </form>
       </div>
     </div>
