@@ -1,5 +1,6 @@
 import ConnectDb from "../config/DB.js";
 import { Employee } from "../models/Employee.model.js";
+import { User } from "../models/User.model.js";
 
 
 // POST /api/employees
@@ -9,19 +10,31 @@ export const PostEmployee = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
-
   try {
-    const newEmployee = new Employee(req.body);
-    await newEmployee.save();
+    // Step 1: Create the employee
+    const newEmployee = await Employee.create(req.body);
+
+    // Step 2: Automatically create a user
+    const username = newEmployee.employeeName.toLowerCase().replace(/\s+/g, '') + newEmployee._id.toString().slice(-4);
+    const password = '123456'; // Generate or use a secure default password
+
+    const newUser = new User({
+      username,
+      password, // You can email or prompt the user to change this
+      role: newEmployee.employeeRole, // Sync role with employeeRole
+      employeeId: newEmployee._id,
+    });
+
+    await newUser.save();
 
     res.status(201).json({
-      message: "Employee created successfully",
+      message: 'Employee and user created successfully',
       employee: newEmployee,
+      user: { username: newUser.username, role: newUser.role },
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error creating employee", error: error.message });
+    console.error(error);
+    res.status(500).json({ message: 'Error creating employee and user', error });
   }
 };
 
