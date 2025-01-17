@@ -56,6 +56,7 @@ export const GetEmployees = async (req, res) => {
 
 // DELETE /api/employees
 
+// DELETE /api/employees
 export const DeleteEmployee = async (req, res) => {
   await ConnectDb();
 
@@ -66,19 +67,26 @@ export const DeleteEmployee = async (req, res) => {
   }
 
   try {
+    // Step 1: Find the employee to be deleted
     const deletedEmployee = await Employee.findByIdAndDelete(id);
 
     if (!deletedEmployee) {
       return res.status(404).json({ message: "Employee not found" });
     }
 
+    // Step 2: Find and delete the associated user
+    const deletedUser = await User.findOneAndDelete({ employeeId: deletedEmployee._id });
+
     res.status(200).json({
-      message: "Employee deleted successfully",
+      message: "Employee and associated user deleted successfully",
       employee: deletedEmployee,
+      user: deletedUser || "No associated user found",
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error deleting employee", error: error.message });
+    res.status(500).json({
+      message: "Error deleting employee and associated user",
+      error: error.message,
+    });
   }
 };
+

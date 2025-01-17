@@ -1,16 +1,23 @@
-import Navbar from "@/components/Layout/Navbar";
+import React, { useContext } from "react";
 import Sidebar from "@/components/Layout/Sidebar";
+import Navbar from "@/components/Layout/Navbar";
 import { Context } from "@/context/Context";
-import { useContext } from "react";
 
 const Layout = ({ children }) => {
-  const { toogleSidebar, setToogleSidebar } = useContext(Context);
+  const { toogleSidebar } = useContext(Context);
+
   return (
-    <div className="w-full">
+    <div className="w-full min-h-screen h-auto bg-[#d4e4ff]">
       <Navbar />
-      <div className="w-full h-auto min-h-[90vh] flex mt-[77px]">
+      <div className="w-full min-h-[calc(100vh-70px)] flex pt-[70px]">
         {toogleSidebar ? <Sidebar /> : null}
-        <div className="w-full ml-[310px]">{children}</div>
+        <div
+          className={`flex-1 transition-all duration-300 ${
+            toogleSidebar ? "md:ml-[320px]" : null
+          } ${toogleSidebar ? "sm:p-6 p-0" : "p-0"} `}
+        >
+          <div className="w-full h-full">{children}</div>
+        </div>
       </div>
     </div>
   );

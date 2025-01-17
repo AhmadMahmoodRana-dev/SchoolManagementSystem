@@ -21,7 +21,7 @@ const data = {
         title: "Classes",
         // icon: <CiSettings />,
         items: [
-          { title: "All Classes", url: "#" },
+          { title: "All Classes", url: "/table/shown-class" },
           { title: "Add Class", url: "/form/add-class" },
         ],
       },
@@ -43,6 +43,14 @@ const data = {
         items: [
           { title: "All Employees", url: "/table/shown-employee" },
           { title: "Add New", url: "/form/add-employee" },
+        ],
+      },
+      {
+        title: "Students",
+        // icon: <CiSettings />,
+        items: [
+          { title: "All Students", url: "/table/shown-employee" },
+          { title: "Add Student", url: "/form/add-student" },
         ],
       },
     ],

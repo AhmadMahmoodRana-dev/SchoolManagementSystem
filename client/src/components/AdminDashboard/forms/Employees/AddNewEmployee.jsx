@@ -5,6 +5,7 @@ import RenderSelect from "../Select/RenderSelect";
 import employeeFormSchema from "@/schemas/AddEmployeSchema";
 import useApisStore from "@/store/Apis.store";
 import OptionalShownComponent from "../header/OptionalShownComponent";
+import FormTitle from "../header/FormTitle";
 const AddNewEmployee = () => {
   const { setData, getData } = useApisStore();
 
@@ -41,12 +42,7 @@ const AddNewEmployee = () => {
       <form onSubmit={formik.handleSubmit} className="px-8">
         {/* Basic Information Section */}
         <div className="basic-info">
-          <div className="content flex items-center gap-3">
-            <div className="circle bg-[#212229] w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="text-white font-bold">1</p>
-            </div>
-            <h1 className="text-[#212229] font-semibold">Basic Information</h1>
-          </div>
+          <FormTitle number={"1"} content={"Basic Information"} />
           <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
             <RenderInput
               name="employeeName"
@@ -106,12 +102,7 @@ const AddNewEmployee = () => {
 
         {/* Other Information Section */}
         <div className="basic-info">
-          <div className="content flex items-center gap-3">
-            <div className="circle bg-[#212229] w-6 h-6 rounded-full flex justify-center items-center">
-              <p className="text-white font-bold">2</p>
-            </div>
-            <h1 className="text-[#212229] font-semibold">Other Information</h1>
-          </div>
+        <FormTitle number={"2"} content={"Other Inforamtion"} />
           <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
             <RenderInput
               name="fatherHusbandName"

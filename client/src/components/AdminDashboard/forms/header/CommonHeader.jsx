@@ -1,14 +1,15 @@
 import React from "react";
 import { RiHome4Line } from "react-icons/ri";
+import { HiChevronRight } from "react-icons/hi";
 
-const CommonHeader = ({firstName,SecondName}) => {
+const CommonHeader = ({firstName, SecondName}) => {
   return (
-    <div className="header w-full h-11 rounded-xl border bg-white flex gap-3 items-center px-2">
-      <h1 className="font-semibold">{firstName}</h1>
-      <hr className=" w-[1px] h-[50%] bg-black" />
-      <div className="icon-container flex gap-3 items-center">
-        <RiHome4Line size={18} />
-        <h1 className="tracking-wider font-serif">- {SecondName}</h1>
+    <div className="w-full bg-white rounded-lg shadow-sm border border-gray-100 flex items-center px-4 py-3.5">
+      <div className="flex items-center gap-2 text-gray-600">
+        <RiHome4Line className="text-lg" />
+        <span className="font-medium text-[0.95rem]">{firstName}</span>
+        <HiChevronRight className="text-lg text-gray-400" />
+        <span className="text-[0.95rem] text-gray-500">{SecondName}</span>
       </div>
     </div>
   );

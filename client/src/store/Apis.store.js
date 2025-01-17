@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { create } from "zustand";
 
 const useApisStore = create((set, get) => ({
@@ -12,6 +13,7 @@ const useApisStore = create((set, get) => ({
       const response = await axios.post(url, data);
       // Re-fetch data to ensure UI reflects the latest data
       await get().getData(url);
+      toast.success("Created successfully!");
       console.log(response.data, "Data Added");
     } catch (error) {
       set({ loading: false, error: error.message });
@@ -38,10 +40,12 @@ const useApisStore = create((set, get) => ({
       await axios.delete(`${url}${id}`);
       set((state) => {
         const updatedData = state.fetchdata[key]?.filter((item) => item.id !== id);
+        toast.success("deleted successfully!");
         return {
           fetchdata: { ...state.fetchdata, [key]: updatedData },
           loading: false,
         };
+
       });
       console.log("Data Deleted and State Updated Locally");
     } catch (error) {

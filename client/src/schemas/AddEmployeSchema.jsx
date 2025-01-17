@@ -4,7 +4,7 @@ const employeeFormSchema = Yup.object({
   employeeName: Yup.string().required("Employee Name is required"),
   mobileNo: Yup.string()
     .required("Mobile No is required")
-    .matches(/^\+92\d{9}$/, "Invalid phone number format"),
+    .matches(/^\+92\d{10}$/, "Invalid phone number format"),
   employeeRole: Yup.string().required("Employee Role is required"),
   dateOfJoining: Yup.date().required("Date of Joining is required"),
   monthlySalary: Yup.number()

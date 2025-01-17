@@ -1,32 +1,31 @@
-  const RenderInput = ({name, type, placeholder, label, isRequired,formik}) => {
-    return (
-        <div className="w-full grid relative">
-        <input
-          name={name}
-          type={type}
-          placeholder={placeholder}
-          className={`border py-3 rounded-3xl outline-none pl-4 ${
-            formik?.touched[name] && formik?.errors[name]
-              ? "border-red-500"
-              : "border-[#7068e4]"
-          }`}
-          onChange={formik?.handleChange}
-          onBlur={formik?.handleBlur}
-          value={formik?.values[name]}
-        />
-        <h1
-          className={`absolute top-[-10px] text-xs ${
-            isRequired ? "bg-[#7068e4]" : "bg-[#8891aa]"
-          } text-white px-3 ml-4 rounded-3xl`}
-        >
-          {label}
-        </h1>
-        {formik?.touched[name] && formik?.errors[name] && (
-          <p className="text-red-500 text-sm mt-1">{formik?.errors[name]}</p>
-        )}
-      </div>
-    )
-  }
-  
-  export default RenderInput
-  
+  const RenderInput = ({name, type, placeholder, label, isRequired, formik}) => {
+  return (
+    <div className="w-full grid relative">
+      <input
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        className={`w-full px-4 py-3 rounded-lg border outline-none transition-all duration-200 bg-white focus:ring-2 focus:ring-blue-100 ${
+          formik?.touched[name] && formik?.errors[name]
+            ? "border-red-400 focus:border-red-500"
+            : "border-gray-200 hover:border-blue-400 focus:border-blue-600"
+        }`}
+        onChange={formik?.handleChange}
+        onBlur={formik?.handleBlur}
+        value={formik?.values[name]}
+      />
+      <h1
+        className={`absolute top-[-10px] text-xs ${
+          isRequired ? "bg-blue-600" : "bg-gray-500"
+        } text-white px-3 ml-4 rounded-full shadow-sm transition-colors duration-200`}
+      >
+        {label}
+      </h1>
+      {formik?.touched[name] && formik?.errors[name] && (
+        <p className="text-red-500 text-sm mt-1.5 ml-1">{formik?.errors[name]}</p>
+      )}
+    </div>
+  )
+}
+
+export default RenderInput

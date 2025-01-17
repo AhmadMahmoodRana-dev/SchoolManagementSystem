@@ -7,59 +7,74 @@ const Sidebar = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
 
   const toggleMenu = (index) => {
-    setOpenIndexes(
-      (prev) =>
-        prev.includes(index)
-          ? prev.filter((i) => i !== index) // Close if already open
-          : [...prev, index] // Open if not already open
+    setOpenIndexes((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]
     );
   };
+
   return (
-    <div className="w-[310px] border-r-2  bg-white shadow-2xl min-h-full md:flex md:flex-col hidden fixed">
-      <h1 className="font-semibold tracking-wide ml-4">Menu</h1>
-      <div className="flex items-center gap-3 py-2 px-6 text-[#5e81f4] border-l-4 border-l-[#5e81f4]">
-        <TfiHome size={16} />
-        <h1 className="font-bold tracking-wide text-[1rem]">Dashboard</h1>
+    <div className="w-[320px] bg-white shadow-lg min-h-full md:flex md:flex-col hidden fixed transition-all duration-300 ease-in-out">
+      <div className="p-6 border-b border-gray-100">
+        <h1 className="text-lg font-semibold text-gray-800">Menu</h1>
       </div>
-      <div>
+      
+      <div className="flex items-center gap-3 py-3 px-6 text-blue-600 bg-blue-50/50 border-l-4 border-l-blue-600 transition-colors duration-200">
+        <TfiHome className="text-blue-600" size={18} />
+        <h1 className="font-medium text-[0.95rem]">Dashboard</h1>
+      </div>
+
+      <div className="py-2">
         {data.navMain.map((section, index) => (
-          <div key={section.title}>
+          <div key={section.title} className="mb-1">
             <div
-              className={`flex items-center gap-3 py-2 px-6 border-l-4 mt-2 ${
+              className={`flex items-center gap-3 py-3 px-6 border-l-4 cursor-pointer hover:bg-gray-50 transition-all duration-200 ${
                 openIndexes.includes(index)
-                  ? "text-[#5e81f4] border-[#5e81f4]"
-                  : "text-gray-600 border-transparent"
+                  ? "text-blue-600 border-blue-600 bg-blue-50/50"
+                  : "text-gray-600 border-transparent hover:border-gray-200"
               }`}
             >
-              <TfiHome size={16} />
-              <h1 className="font-semibold tracking-wide text-[1rem]">
+              <TfiHome size={18} />
+              <h1 className="font-medium text-[0.95rem] flex-1">
                 {section.title}
               </h1>
               <span
-                className="ml-auto cursor-pointer"
+                className="p-1 rounded-md hover:bg-gray-100 transition-colors"
                 onClick={() => toggleMenu(index)}
               >
                 {openIndexes.includes(index) ? (
-                  <FaMinus size={12} />
+                  <FaMinus size={12} className="text-blue-600" />
                 ) : (
                   <FaPlus size={12} />
                 )}
               </span>
             </div>
-            {openIndexes.includes(index) && (
-              <ul className="mx-9 flex flex-col gap-2 border-l-2 border-[#5e81f4]">
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                openIndexes.includes(index) ? "max-h-96" : "max-h-0"
+              }`}
+            >
+              <ul className="mx-6 flex flex-col border-l-2 border-blue-600/20 my-2">
                 {section.items.map((item) => (
                   <li
                     key={item.title}
-                    className={`text-[#666] text-sm pl-5 hover:text-[#5e81f4] tracking-wide${
-                      item.isActive ? "font-bold" : ""
-                    }`}
+                    className="relative"
                   >
-                    <a href={item.url}>{item.title}</a>
+                    <a
+                      href={item.url}
+                      className={`block py-2 pl-4 text-[0.9rem] text-gray-600 hover:text-blue-600 transition-colors relative before:absolute before:left-[-4px] before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-blue-600 before:opacity-0 hover:before:opacity-100 before:transition-opacity ${
+                        item.isActive
+                          ? "text-blue-600 font-medium before:opacity-100"
+                          : ""
+                      }`}
+                    >
+                      {item.title}
+                    </a>
                   </li>
                 ))}
               </ul>
-            )}
+            </div>
           </div>
         ))}
       </div>
