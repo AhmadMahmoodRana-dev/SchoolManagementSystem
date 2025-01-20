@@ -43,14 +43,16 @@ const data = {
         items: [
           { title: "All Employees", url: "/table/shown-employee" },
           { title: "Add New", url: "/form/add-employee" },
+          { title: "Users Management", url: "/table/employee-user" },
         ],
       },
       {
         title: "Students",
         // icon: <CiSettings />,
         items: [
-          { title: "All Students", url: "/table/shown-employee" },
+          { title: "All Students", url: "/table/Shown-student" },
           { title: "Add Student", url: "/form/add-student" },
+          { title: "Users Management", url: "/table/student-user" },
         ],
       },
     ],

@@ -6,8 +6,9 @@ import employeeFormSchema from "@/schemas/AddEmployeSchema";
 import useApisStore from "@/store/Apis.store";
 import OptionalShownComponent from "../header/OptionalShownComponent";
 import FormTitle from "../header/FormTitle";
+import SubmitButton from "../buttons/SubmitButton";
 const AddNewEmployee = () => {
-  const { setData, getData } = useApisStore();
+  const { setData} = useApisStore();
 
   const formik = useFormik({
     initialValues: {
@@ -28,7 +29,7 @@ const AddNewEmployee = () => {
     },
     validationSchema: employeeFormSchema,
     onSubmit: (values, { resetForm }) => {
-      setData("http://localhost:4000/api/form/employee", values);
+      setData("http://localhost:4000/api/form/employee", values, "employee");
       resetForm();
     },
   });
@@ -172,14 +173,7 @@ const AddNewEmployee = () => {
             />
           </div>
         </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="bg-[#7068e4] text-white px-6 py-3 rounded-3xl mt-4"
-        >
-          Submit
-        </button>
+        <SubmitButton text={"Submit"} />
       </form>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import Sidebar from "@/components/Layout/Sidebar";
 import Navbar from "@/components/Layout/Navbar";
 import { Context } from "@/context/Context";
@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   return (
     <div className="w-full min-h-screen h-auto bg-[#d4e4ff]">
       <Navbar />
-      <div className="w-full min-h-[calc(100vh-70px)] flex pt-[70px]">
+      <div className={`w-full ${toogleSidebar ? "min-h-[calc(100vh-70px)]" : "min-h-[calc(100vh)]"}  flex pt-[70px] `}>
         {toogleSidebar ? <Sidebar /> : null}
         <div
           className={`flex-1 transition-all duration-300 ${

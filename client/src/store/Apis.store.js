@@ -7,12 +7,12 @@ const useApisStore = create((set, get) => ({
   loading: false,
   error: null,
 
-  setData: async (url, data) => {
+  setData: async (url, data, key) => {
     set({ loading: true, error: null });
     try {
       const response = await axios.post(url, data);
       // Re-fetch data to ensure UI reflects the latest data
-      await get().getData(url);
+      await get().getData(url,key);
       toast.success("Created successfully!");
       console.log(response.data, "Data Added");
     } catch (error) {
@@ -40,13 +40,13 @@ const useApisStore = create((set, get) => ({
       await axios.delete(`${url}${id}`);
       set((state) => {
         const updatedData = state.fetchdata[key]?.filter((item) => item.id !== id);
-        toast.success("deleted successfully!");
         return {
           fetchdata: { ...state.fetchdata, [key]: updatedData },
           loading: false,
         };
-
       });
+      await get().getData(url,key);
+      toast.success("deleted successfully!");
       console.log("Data Deleted and State Updated Locally");
     } catch (error) {
       set({ loading: false, error: error.message });

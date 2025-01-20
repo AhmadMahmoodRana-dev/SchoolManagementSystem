@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { TfiHome } from "react-icons/tfi";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import data from "@/utils/SidebarData";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [openIndexes, setOpenIndexes] = useState([]);
 
   const toggleMenu = (index) => {
     setOpenIndexes((prev) =>
-      prev.includes(index)
-        ? prev.filter((i) => i !== index)
-        : [...prev, index]
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
 
@@ -19,7 +18,7 @@ const Sidebar = () => {
       <div className="p-6 border-b border-gray-100">
         <h1 className="text-lg font-semibold text-gray-800">Menu</h1>
       </div>
-      
+
       <div className="flex items-center gap-3 py-3 px-6 text-blue-600 bg-blue-50/50 border-l-4 border-l-blue-600 transition-colors duration-200">
         <TfiHome className="text-blue-600" size={18} />
         <h1 className="font-medium text-[0.95rem]">Dashboard</h1>
@@ -57,12 +56,9 @@ const Sidebar = () => {
             >
               <ul className="mx-6 flex flex-col border-l-2 border-blue-600/20 my-2">
                 {section.items.map((item) => (
-                  <li
-                    key={item.title}
-                    className="relative"
-                  >
-                    <a
-                      href={item.url}
+                  <li key={item.title} className="relative">
+                    <Link
+                      to={`${item.url}`}
                       className={`block py-2 pl-4 text-[0.9rem] text-gray-600 hover:text-blue-600 transition-colors relative before:absolute before:left-[-4px] before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-blue-600 before:opacity-0 hover:before:opacity-100 before:transition-opacity ${
                         item.isActive
                           ? "text-blue-600 font-medium before:opacity-100"
@@ -70,7 +66,7 @@ const Sidebar = () => {
                       }`}
                     >
                       {item.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
