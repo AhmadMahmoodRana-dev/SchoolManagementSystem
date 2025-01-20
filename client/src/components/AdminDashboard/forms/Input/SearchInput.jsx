@@ -5,7 +5,7 @@ const SearchInput = ({placeholder}) => {
     <div className="w-[30%] relative mt-10">
       <input
         type="text"
-        className="border py-3 rounded-3xl outline-none pl-4  w-full border-blue-600   placeholder:text-[#868e96]"
+        className="border py-3 rounded-3xl outline-none pl-4  dark:bg-transparent dark:placeholder:text-blue-400 w-full border-blue-600   placeholder:text-[#868e96]"
         placeholder={placeholder}
       />
       <h1

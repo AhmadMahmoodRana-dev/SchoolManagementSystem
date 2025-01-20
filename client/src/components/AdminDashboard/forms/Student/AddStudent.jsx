@@ -78,9 +78,9 @@ const AddStudent = () => {
       <div className="common-header">
         <CommonHeader firstName={"Students"} SecondName={"Admission Form"} />
       </div>
-      <div className="bg-[#f6f7fb] w-full min-h-screen h-auto z-10">
-        <div className="optional_Header mt-3">
-          <h1 className="text-center font-semibold text-4xl pb-3">
+      <div className="bg-[#f6f7fb] w-full min-h-screen h-auto z-10 dark:bg-gray-700/20">
+        <div className="optional_Header mt-3 pt-12">
+          <h1 className="text-center font-semibold text-4xl pb-3 dark:text-blue-800">
             Admission Form
           </h1>
           <OptionalShownComponent />
@@ -89,7 +89,7 @@ const AddStudent = () => {
         <div className="student-form px-8">
           <form onSubmit={formik.handleSubmit}>
             <FormTitle number={"1"} content={"Student Information"} />
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229] dark:border-gray-600">
               <RenderInput
                 name="studentName"
                 type="text"
@@ -139,7 +139,7 @@ const AddStudent = () => {
             </div>
 
             <FormTitle number={"2"} content={"Other Information"} />
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229] dark:border-gray-600">
               <RenderInput
                 name="cnic"
                 type="number"
@@ -246,7 +246,7 @@ const AddStudent = () => {
               />
             </div>
             <FormTitle number={3} content={"Father Information"} />
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229] dark:border-gray-600">
               <RenderInput
                 name="fatherName"
                 type="text"
@@ -302,7 +302,7 @@ const AddStudent = () => {
               />
             </div>
             <FormTitle number={4} content={"Mother Information"} />
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229] dark:border-gray-600">
               <RenderInput
                 name="motherName"
                 type="text"

@@ -51,14 +51,14 @@ const AddClass = () => {
   return (
     <>
       <CommmonHeader firstName={"Classes"} SecondName={"Add New Class"} />
-      <div className="w-full h-[84vh] bg-[#f6f7fb] mt-6">
+      <div className="w-full h-[84vh] bg-[#f6f7fb] mt-6 dark:bg-gray-700/20">
         <div className="w-full h-full flex justify-center px-3">
-          <div className="w-[50%]  max-h-[60vh] h-auto bg-white mt-6 rounded-xl border border-gray-100 shadow-sm">
-            <div className="p-6 border-b border-gray-100">
-              <h1 className="text-xl font-semibold text-gray-800">
+          <div className="w-[50%]  max-h-[60vh] h-auto bg-white mt-6 rounded-xl border border-gray-100 shadow-sm dark:bg-transparent dark:border-none">
+            <div className="p-6 border-b border-gray-100 dark:border-none">
+              <h1 className="text-xl font-semibold text-gray-800 dark:text-blue-400">
                 Add New Class
               </h1>
-              <p className="text-gray-500 text-sm mt-1">
+              <p className="text-gray-500 dark:text-blue-400 text-sm mt-1">
                 Fill in the details to create a new class
               </p>
             </div>

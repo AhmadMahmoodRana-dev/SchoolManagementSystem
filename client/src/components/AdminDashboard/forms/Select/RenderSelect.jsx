@@ -5,10 +5,10 @@ const RenderSelect = ({ name, options, label, formik }) => {
     <div className="w-full grid relative">
       <select
         name={name}
-        className={`w-full px-4 py-3 rounded-lg border outline-none transition-all duration-200 bg-white appearance-none cursor-pointer focus:ring-2 focus:ring-blue-100 ${
+        className={`w-full px-4 py-3 rounded-lg border outline-none transition-all duration-200 bg-white dark:bg-transparent dark:placeholder:text-blue-600 appearance-none cursor-pointer focus:ring-2 focus:ring-blue-100 ${
           formik?.touched[name] && formik?.errors[name]
-            ? "border-red-400 focus:border-red-500"
-            : "border-gray-200 hover:border-blue-400 focus:border-blue-600"
+            ? "border-red-400 focus:border-red-500 dark:focus:border-red-500"
+            : "border-gray-200 hover:border-blue-400 focus:border-blue-600 dark:border-blue-400 dark:focus:border-blue-600"
         }`}
         onChange={formik?.handleChange}
         onBlur={formik?.handleBlur}
@@ -16,7 +16,7 @@ const RenderSelect = ({ name, options, label, formik }) => {
       >
         <option value="">Select *</option>
         {options.map((option) => (
-          <option key={option.value} value={option.value} className="py-2">
+          <option key={option.value} value={option.value} className="py-2 text-black dark:bg-transparent">
             {option.label}
           </option>
         ))}

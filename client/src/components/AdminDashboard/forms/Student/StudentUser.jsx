@@ -26,10 +26,10 @@ const StudentUser = () => {
   return (
     <>
       <CommonHeader firstName="Employees" SecondName="Users" />
-      <div className="w-full bg-[#f6f7fb] h-auto min-h-screen mt-6">
+      <div className="w-full bg-[#f6f7fb] dark:bg-gray-700/20 h-auto min-h-screen mt-6">
         <div className="search-fiels-container w-full flex justify-end items-center gap-10 pr-16">
           <SearchInput placeholder="Search Class" />
-          <button className="flex rounded-3xl items-center justify-center px-5 py-3 bg-[#3144de] text-white font-semibold mt-10 gap-2">
+          <button className="flex rounded-3xl items-center justify-center px-5 py-3 bg-[#3144de] dark:bg-blue-600 hover:bg-[#2838c0] dark:hover:bg-blue-700 text-white font-semibold mt-10 gap-2 transition-colors">
             <HiOutlineRefresh />
             Refresh
           </button>

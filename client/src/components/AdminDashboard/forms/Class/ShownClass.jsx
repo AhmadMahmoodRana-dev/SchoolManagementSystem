@@ -13,7 +13,7 @@ const ShownClass = () => {
   return (
     <>
       <CommonHeader firstName="Classes" SecondName="All Classes" />
-      <div className="w-full h-screen bg-[#f6f7fb] px-6 mt-5">
+      <div className="w-full h-screen bg-[#f6f7fb] dark:bg-gray-700/20 px-6 mt-5">
         {/* Search Inputs */}
         <div className="search-fiels-container w-full flex justify-end items-center gap-10 pr-16">
           <SearchInput placeholder="Search Class" />

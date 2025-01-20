@@ -14,23 +14,23 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-[320px] bg-white shadow-lg min-h-full md:flex md:flex-col hidden fixed transition-all duration-300 ease-in-out">
-      <div className="p-6 border-b border-gray-100">
-        <h1 className="text-lg font-semibold text-gray-800">Menu</h1>
+    <div className="w-[320px] bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-lg min-h-full md:flex md:flex-col hidden fixed transition-all duration-300 ease-in-out">
+      <div className="p-6 border-b border-gray-100 dark:border-gray-700">
+        <h1 className="text-lg font-semibold text-gray-800 dark:text-blue-600">Menu</h1>
       </div>
 
-      <div className="flex items-center gap-3 py-3 px-6 text-blue-600 bg-blue-50/50 border-l-4 border-l-blue-600 transition-colors duration-200">
-        <TfiHome className="text-blue-600" size={18} />
+      <div className="flex items-center gap-3 py-3 px-6 text-blue-600 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20 border-l-4 border-l-blue-600 dark:border-l-blue-400 transition-colors duration-200">
+        <TfiHome className="text-blue-600 dark:text-blue-400" size={18} />
         <h1 className="font-medium text-[0.95rem]">Dashboard</h1>
       </div>
 
-      <div className="py-2">
+      <div className="py-4  flex-1 overflow-y-auto">
         {data.navMain.map((section, index) => (
-          <div key={section.title} className="mb-1">
+          <div key={section.title} className="mb-6">
             <div
-              className={`flex items-center gap-3 py-3 px-6 border-l-4 cursor-pointer hover:bg-gray-50 transition-all duration-200 ${
+              className={`flex items-center gap-3 py-3 px-6  border-l-4 cursor-pointer  transition-all duration-200 ${
                 openIndexes.includes(index)
-                  ? "text-blue-600 border-blue-600 bg-blue-50/50"
+                  ? "text-blue-400 border-blue-400 bg-blue-900/20"
                   : "text-gray-600 border-transparent hover:border-gray-200"
               }`}
             >
@@ -39,7 +39,7 @@ const Sidebar = () => {
                 {section.title}
               </h1>
               <span
-                className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+                className="p-1 rounded-md  transition-colors"
                 onClick={() => toggleMenu(index)}
               >
                 {openIndexes.includes(index) ? (
@@ -59,7 +59,7 @@ const Sidebar = () => {
                   <li key={item.title} className="relative">
                     <Link
                       to={`${item.url}`}
-                      className={`block py-2 pl-4 text-[0.9rem] text-gray-600 hover:text-blue-600 transition-colors relative before:absolute before:left-[-4px] before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-blue-600 before:opacity-0 hover:before:opacity-100 before:transition-opacity ${
+                      className={`block py-2 pl-4 text-[0.9rem] text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors relative before:absolute before:left-[-4px] before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-blue-600 before:opacity-0 hover:before:opacity-100 before:transition-opacity ${
                         item.isActive
                           ? "text-blue-600 font-medium before:opacity-100"
                           : ""

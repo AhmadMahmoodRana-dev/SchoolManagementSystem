@@ -5,7 +5,7 @@
         name={name}
         type={type}
         placeholder={placeholder}
-        className={`w-full px-4 py-3 rounded-lg border outline-none transition-all duration-200 bg-white focus:ring-2 focus:ring-blue-100 ${
+        className={`w-full px-4 py-3 rounded-lg border outline-none transition-all duration-200 bg-white dark:bg-transparent dark:placeholder:text-blue-600 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-600 dark:border-blue-600 ${
           formik?.touched[name] && formik?.errors[name]
             ? "border-red-400 focus:border-red-500"
             : "border-gray-200 hover:border-blue-400 focus:border-blue-600"

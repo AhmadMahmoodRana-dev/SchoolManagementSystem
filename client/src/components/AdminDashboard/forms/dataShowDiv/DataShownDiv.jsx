@@ -7,13 +7,13 @@ import useApisStore from "@/store/Apis.store";
 const DataShownDiv = ({name,role,id,url,key1}) => {
     const {deleteData} = useApisStore()
   return (
-    <div className="info-box  bg-white rounded-lg flex  flex-col justify-center items-center shadow-lg h-[230px]">
+    <div className="info-box  bg-white dark:bg-gray-800/20 dark:shadow-inner dark:shadow-blue-800/20 rounded-lg flex  flex-col justify-center items-center shadow-lg h-[230px]">
       <Avatar className="w-[80px] h-[80px]">
         <AvatarImage src="https://github.com/shadcn.png" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
-      <h1 className="text-xs text-gray-500 mt-4">{name}</h1>
-      <p className="text-[12px] text-gray-700 tracking-wider font-semibold">
+      <h1 className="text-xs dark:text-blue-400 text-gray-500 mt-4">{name}</h1>
+      <p className="text-[12px] dark:text-blue-400 text-gray-700 tracking-wider font-semibold">
         {role}
       </p>
       <div className="events-container flex gap-4 mt-4">

@@ -13,7 +13,7 @@ const ShownEmployee = () => {
   return (
     <>
       <CommonHeader firstName="Employee" SecondName="All Employees" />
-      <div className="w-full h-screen bg-[#f6f7fb] px-6 mt-6">
+      <div className="w-full h-screen bg-[#f6f7fb] dark:bg-gray-700/20 px-6 mt-6">
         {/* Search Inputs */}
         <div className="search-fiels-container w-full flex justify-end items-center gap-10 pr-16">
           <SearchInput placeholder="Search Employee" />

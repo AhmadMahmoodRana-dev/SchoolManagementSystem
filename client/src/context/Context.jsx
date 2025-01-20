@@ -4,7 +4,7 @@ import { createContext, useState } from "react";
 export const Context = createContext();
 const ContextProvider = (props) => {
   const user = true;
-  const [toogleSidebar, setToogleSidebar] = useState("true");
+  const [toogleSidebar, setToogleSidebar] = useState(true);
 
 
  

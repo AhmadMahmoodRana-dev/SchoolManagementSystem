@@ -6,7 +6,7 @@ const FormTitle = ({number,content}) => {
       <div className="circle bg-[#212229] w-6 h-6 rounded-full flex justify-center items-center">
         <p className="text-white font-bold">{number}</p>
       </div>
-      <h1 className="text-[#212229] font-semibold">{content}</h1>
+      <h1 className="text-[#212229] 2xl:text-blue-400 font-semibold">{content}</h1>
     </div>
   );
 };

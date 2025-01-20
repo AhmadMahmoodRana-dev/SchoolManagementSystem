@@ -14,7 +14,7 @@ const ShowStudent = () => {
   return (
     <div className="w-full flex flex-col gap-4">
       <CommonHeader firstName={"Students"} SecondName={"All Students"} />
-      <div className="w-full bg-[#f6f7fb] h-auto min-h-screen">
+      <div className="w-full bg-[#f6f7fb] h-auto min-h-screen dark:bg-gray-700/20">
       <div className="search-fiels-container w-full flex justify-end items-center gap-10 pr-16">
         <SearchInput placeholder="Search Class" />
         <button className="flex rounded-3xl items-center justify-center px-5 py-3 bg-[#3144de] text-white font-semibold mt-10 gap-2">

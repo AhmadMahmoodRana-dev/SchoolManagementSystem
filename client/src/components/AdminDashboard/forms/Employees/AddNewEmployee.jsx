@@ -35,16 +35,16 @@ const AddNewEmployee = () => {
   });
 
   return (
-    <div className="flex flex-col w-full h-screen bg-[#f6f7fb]">
+    <div className="flex flex-col w-full h-screen bg-[#f6f7fb] dark:bg-gray-700/20">
       <div className="main-content w-full items-center flex flex-col gap-3 py-10">
-        <h1 className="text-4xl font-bold">Employee Form</h1>
+        <h1 className="text-4xl font-bold dark:text-blue-600">Employee Form</h1>
         <OptionalShownComponent />
       </div>
       <form onSubmit={formik.handleSubmit} className="px-8">
         {/* Basic Information Section */}
         <div className="basic-info">
           <FormTitle number={"1"} content={"Basic Information"} />
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229] dark:border-t-gray-600">
             <RenderInput
               name="employeeName"
               type="text"
@@ -104,7 +104,7 @@ const AddNewEmployee = () => {
         {/* Other Information Section */}
         <div className="basic-info">
         <FormTitle number={"2"} content={"Other Inforamtion"} />
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229]">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-6 py-10 border-t border-t-[#212229] dark:border-t-gray-600">
             <RenderInput
               name="fatherHusbandName"
               type="text"
