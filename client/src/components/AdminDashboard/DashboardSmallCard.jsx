@@ -5,7 +5,7 @@ export const SmallCard = ({ bgCard, icon, total, thisMonth, heading }) => {
   console.log(bgCard);
   return (
     <Card
-      className={`min-w-[290px] 2xl:min-w-[250px] xl:min-w-[200px] w-[23%] card h-auto min-h-[150px] rounded-lg px-3 py-5 flex flex-col justify-between hover:shadow-xl hover:shadow-slate-300 `}
+      className={`min-w-[290px] dark:shadow-none dark:border-none 2xl:min-w-[250px] xl:min-w-[200px] w-[23%] card h-auto min-h-[150px] rounded-lg px-3 py-5 flex flex-col justify-between hover:shadow-xl hover:shadow-slate-300 `}
       style={{ backgroundColor: bgCard }}
     >
       <h1 className="text-white font-semibold text-md tracking-wide">

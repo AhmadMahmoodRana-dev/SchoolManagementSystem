@@ -7,7 +7,7 @@ const CommonHeader = ({ firstName, SecondName }) => {
   const { toogleSidebar } = useContext(Context);
   return (
     <div
-      className={`w-full bg-white dark:bg-blue-900/20 dark:border-0 rounded-lg shadow-sm border border-gray-100 flex items-center px-4 py-3.5 ${
+      className={`w-full bg-white dark:bg-blue-900/20 dark:border-0 rounded-lg shadow-sm border border-gray-100 flex items-center px-4 py-3.5 sm:mt-0 mt-5 ${
         !toogleSidebar ? "mt-5" : "mt-0"
       }`}
     >

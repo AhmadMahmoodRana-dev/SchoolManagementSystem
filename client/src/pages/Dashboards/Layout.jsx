@@ -2,8 +2,6 @@ import { useContext } from "react";
 import Sidebar from "@/components/Layout/Sidebar";
 import Navbar from "@/components/Layout/Navbar";
 import { Context } from "@/context/Context";
-import { BiBell } from 'react-icons/bi';
-import { Outlet } from 'react-router-dom';
 
 const Layout = ({ children }) => {
   const { toogleSidebar } = useContext(Context);
@@ -16,7 +14,7 @@ const Layout = ({ children }) => {
         <div
           className={`flex-1 transition-all duration-300 ${
             toogleSidebar ? "md:ml-[320px]" : ""
-          } ${toogleSidebar ? "sm:p-6 p-0" : "p-0"}`}
+          } ${toogleSidebar ? "sm:p-6 p-8" : "p-8"}`}
         >
           <div className="w-full h-full dark:text-white">
             {children}

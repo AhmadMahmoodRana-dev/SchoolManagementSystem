@@ -13,11 +13,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from ".
 
 const DashboarMainTable = () => {
   return (
-    <Card className="xl:col-span-2" x-chunk="dashboard-01-chunk-4">
+    <Card className="xl:col-span-2 dark:bg-[#19202f] dark:border-none" x-chunk="dashboard-01-chunk-4">
       <CardHeader className="flex flex-row items-center">
         <div className="grid gap-2">
-          <CardTitle>Latest Invoices</CardTitle>
-          <CardDescription>Recent Invoices from your store.</CardDescription>
+          <CardTitle className="dark:text-blue-500">Latest Invoices</CardTitle>
+          <CardDescription className="dark:text-blue-500">Recent Invoices from your store.</CardDescription>
         </div>
         <Button asChild size="sm" className="ml-auto gap-1">
           <Link href="#">
@@ -29,16 +29,16 @@ const DashboarMainTable = () => {
       <CardContent>
         <Table>
           <TableHeader>
-            <TableRow>
-              <TableHead>Customer</TableHead>
-              <TableHead className="hidden xl:table-column">Type</TableHead>
-              <TableHead className="hidden xl:table-column">Status</TableHead>
-              <TableHead className="hidden xl:table-column">Date</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
+            <TableRow className="dark:hover:bg-blue-800/20">
+              <TableHead className="dark:text-blue-400" >Customer</TableHead>
+              <TableHead className="hidden xl:table-column dark:text-blue-400">Type</TableHead>
+              <TableHead className="hidden xl:table-column dark:text-blue-400">Status</TableHead>
+              <TableHead className="hidden xl:table-column dark:text-blue-400">Date</TableHead>
+              <TableHead className="text-right dark:text-blue-400">Amount</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow>
+            <TableRow className="dark:hover:bg-blue-800/20" >
               <TableCell>
                 <div className="font-medium">aaa</div>
                 <div className="hidden text-sm text-muted-foreground md:inline"></div>

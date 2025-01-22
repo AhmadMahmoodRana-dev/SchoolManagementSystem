@@ -4,6 +4,7 @@ import { HiOutlineRefresh } from "react-icons/hi";
 import useApisStore from "@/store/Apis.store";
 import DataShownDiv from "../dataShowDiv/DataShownDiv";
 import CommonHeader from "../header/CommonHeader";
+import ShowContent from "../header/ShowContent";
 const ShownClass = () => {
   const { getData, fetchdata } = useApisStore();
   useEffect(() => {
@@ -22,7 +23,7 @@ const ShownClass = () => {
             Refresh
           </button>
         </div>
-        <div className="boxes-container grid grid-cols-5 gap-4 pt-10">
+        <div className="boxes-container grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 gap-4 pt-10">
           {fetchdata?.classes?.map((data, index) => {
             return (
               <DataShownDiv
@@ -37,6 +38,7 @@ const ShownClass = () => {
           })}
         </div>
       </div>
+      <ShowContent/>
     </>
   );
 };

@@ -1,11 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useContext } from "react";
-import { Context } from "@/context/Context";
 import Layout from "@/pages/Dashboards/Layout";
 
 const PrivateRoutes = () => {
-  const { user } = useContext(Context);
-  return user ? (
+  const token = localStorage.getItem("authToken"); 
+  return token ? (
     <Layout>
       <Outlet />
     </Layout>

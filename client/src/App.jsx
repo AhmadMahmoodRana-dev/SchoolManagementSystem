@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PublicRoutes from "./routes/PublicRoutes";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import Login from "./pages/Auth/Login";
-import Register from "./pages/Auth/Register";
 import AdminHome from "./pages/Admin/AdminHome";
 import EmployeeAddPage from "./pages/Client/Employees/EmployeeAddPage";
 import AddClassPage from "./pages/Client/Class/AddClassPage";
@@ -16,6 +15,7 @@ import EmployeUserPage from "./pages/Client/Employees/EmployeUserPage";
 import StudentUserPage from "./pages/Client/Student/StudentUserPage";
 import { ThemeProvider } from "./context/ThemeContext";
 import ThemeToggle from "./components/ThemeToggle";
+import ProfileSection from "./components/Layout/ProfileSection";
 
 export default function App() {
   return (
@@ -25,7 +25,6 @@ export default function App() {
             {/* Public Routes */}
             <Route element={<PublicRoutes />}>
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
             </Route>
 
             {/* Private Routes */}
@@ -43,6 +42,7 @@ export default function App() {
           </Routes>
           <ThemeToggle />
           <ToastContainer />
+          <ProfileSection/>
       </div>
     </ThemeProvider>
   );

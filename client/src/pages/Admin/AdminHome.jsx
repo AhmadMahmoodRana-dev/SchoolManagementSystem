@@ -9,7 +9,7 @@ const AdminHome = () => {
   const { toogleSidebar } = useContext(Context);
   return (
     <div
-      className={`bg-[#f6f7fb] h-auto ${toogleSidebar ? null : "min-h-[91vh]"}`}
+      className={` h-auto ${toogleSidebar ? null : "min-h-[91vh]"}`}
     >
       <DashboardSmallCardContainer />
       <div className={`w-full h-auto ${toogleSidebar ? "px-8" : "px-10"}`}>

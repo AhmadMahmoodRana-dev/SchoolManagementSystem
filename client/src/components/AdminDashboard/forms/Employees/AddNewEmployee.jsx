@@ -69,6 +69,7 @@ const AddNewEmployee = () => {
                 { value: "Teacher", label: "Teacher" },
                 { value: "Accountant", label: "Accountant" },
                 { value: "Store Manager", label: "Store Manager" },
+                { value: "Admin", label: "Admin" },
                 { value: "Other", label: "Other" },
               ]}
               label="Employee Role*"

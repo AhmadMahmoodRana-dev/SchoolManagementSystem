@@ -3,9 +3,9 @@ import { FaBell } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { Context } from "@/context/Context";
 import { HiMenuAlt2 } from "react-icons/hi";
-
+import { IoLogOutOutline } from "react-icons/io5";
 const Navbar = () => {
-  const { toogleSidebar, setToogleSidebar } = useContext(Context);
+  const { toogleSidebar, setToogleSidebar,handleLogout,setProfile,profile } = useContext(Context);
   
   const handleSidebarToggle = () => {
     setToogleSidebar(!toogleSidebar);
@@ -35,8 +35,11 @@ const Navbar = () => {
           <FaBell className="text-gray-600 dark:text-gray-300 text-lg" />
           <span className="absolute top-2 right-2 w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></span>
         </button>
-        <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200 ml-1">
+        <button onClick={() => setProfile(!profile)} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200 ml-1">
           <CgProfile className="text-gray-600 dark:text-gray-300 text-xl" />
+        </button>
+        <button onClick={() => handleLogout()} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200 ml-1">
+          <IoLogOutOutline className="text-gray-600 dark:text-gray-300 text-xl" />
         </button>
       </div>
     </nav>

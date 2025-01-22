@@ -1,4 +1,3 @@
-import { CiSettings } from "react-icons/ci";
 
 const data = {
     navMain: [
@@ -14,7 +13,7 @@ const data = {
           { title: "Marks Grading", url: "#" },
           { title: "Theme & Language", url: "#" },
           { title: "Account Settings", url: "#" },
-          { title: "Log out", url: "#" },
+          { title: "Log out", url: "#"},
         ],
       },
       {

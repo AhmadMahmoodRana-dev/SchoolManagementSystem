@@ -25,12 +25,22 @@ auth.post("/login", async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    res.json({ token });
+    // Send token and user data in the response
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        username: user.username,
+        name: user.name,  // Assuming you have a name field
+        role: user.role,
+      },
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error logging in", error });
   }
 });
+
 
 auth.get("/login", async (req, res) => {
   await ConnectDb();

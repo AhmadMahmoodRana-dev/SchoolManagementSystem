@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ['Principal', 'Management Staff', 'Teacher', "Accountant","Store Manager","Others","Students"], default: 'Teacher' }, // Use roles matching the employee's
+  role: { type: String, enum: ['Principal', 'Management Staff', 'Teacher', "Accountant","Store Manager","Others","Students","Admin"], default: 'Teacher' }, // Use roles matching the employee's
   employeeId: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' },
 });
 
