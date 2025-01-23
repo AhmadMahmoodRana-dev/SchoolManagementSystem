@@ -15,9 +15,13 @@ const RenderSelect = ({ name, options, label, formik }) => {
         value={formik?.values[name]}
       >
         <option value="">Select *</option>
-        {options.map((option) => (
-          <option key={option.value} value={option.value} className="py-2 text-black dark:bg-transparent">
-            {option.label}
+        {options?.map((option) => (
+          <option
+            key={option?.value}
+            value={option?.value}
+            className="py-2 text-black dark:bg-transparent"
+          >
+            {option?.label}
           </option>
         ))}
       </select>

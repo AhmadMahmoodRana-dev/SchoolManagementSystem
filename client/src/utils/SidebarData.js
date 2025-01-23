@@ -25,15 +25,11 @@ const data = {
         ],
       },
       {
-        title: "API Reference",
+        title: "Subjects",
         // icon: <CiSettings />,
         items: [
-          { title: "Components", url: "#" },
-          { title: "File Conventions", url: "#" },
-          { title: "Functions", url: "#" },
-          { title: "next.config.js Options", url: "#" },
-          { title: "CLI", url: "#" },
-          { title: "Edge Runtime", url: "#" },
+          { title: "Classes With Subjects", url: "/table/shown-subject" },
+          { title: "Assign Subjects", url: "/form/assign-subject" },
         ],
       },
       {

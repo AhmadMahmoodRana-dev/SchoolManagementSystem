@@ -16,6 +16,8 @@ import StudentUserPage from "./pages/Client/Student/StudentUserPage";
 import { ThemeProvider } from "./context/ThemeContext";
 import ThemeToggle from "./components/ThemeToggle";
 import ProfileSection from "./components/Layout/ProfileSection";
+import AssignSubjects from "./pages/Client/Subjects/AssignSubjects";
+import AllSubjects from "./pages/Client/Subjects/AllSubjects";
 
 export default function App() {
   return (
@@ -38,6 +40,8 @@ export default function App() {
               <Route path="/form/add-student" element={<StudentAddPage/>} />
               <Route path="/table/Shown-student" element={<StudentShownPage/>} />
               <Route path="/table/student-user" element={<StudentUserPage/>} />
+              <Route path="/form/assign-subject" element={<AssignSubjects/>} />
+              <Route path="/table/shown-subject" element={<AllSubjects/>} />
             </Route>
           </Routes>
           <ThemeToggle />

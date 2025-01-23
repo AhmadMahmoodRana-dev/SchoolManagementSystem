@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { create } from "zustand";
 
 const useApisStore = create((set, get) => ({
-  fetchdata: {}, // Store data for multiple APIs as an object
+  fetchdata: {}, 
   loading: false,
   error: null,
 
@@ -11,7 +11,6 @@ const useApisStore = create((set, get) => ({
     set({ loading: true, error: null });
     try {
       const response = await axios.post(url, data);
-      // Re-fetch data to ensure UI reflects the latest data
       await get().getData(url,key);
       toast.success("Created successfully!");
       console.log(response.data, "Data Added");
