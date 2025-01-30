@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   role: { type: String, enum: ['Principal', 'Management Staff', 'Teacher', "Accountant","Store Manager","Others","Students","Admin"], default: 'Teacher' }, // Use roles matching the employee's
   employeeId: { type: mongoose.Schema.Types.ObjectId, ref: 'Employee' },
+  registrationNo:{type:String}
+  
 });
 
 // Hash the password before saving

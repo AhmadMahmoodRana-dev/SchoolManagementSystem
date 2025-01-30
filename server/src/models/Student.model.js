@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const StudentSchema = new mongoose.Schema({
   studentName: { type: String, required: true },
-  registrationNo: { type: Number, required: true },
+  registrationNo: { type: String, required: true },
   class: { type: String, required: true },
   admissionDate: { type: String, required: true },
   discountPercentage: { type: Number, required: true },

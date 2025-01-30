@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import FormTitle from "../header/FormTitle";
 import StudentFormSchema from "@/schemas/AddStudentSchema";
 import SubmitButton from "../buttons/SubmitButton";
+import generateRegistrationNo from "@/utils/generateRegistrationNo";
 
 const AddStudent = () => {
   // Class Option SELECTER
@@ -17,7 +18,6 @@ const AddStudent = () => {
   }, []);
 
   const [selectData, setSelectData] = useState([]);
-
   useEffect(() => {
     if (fetchdata?.classes) {
       const formattedData = fetchdata?.classes?.map((data) => ({
@@ -29,11 +29,12 @@ const AddStudent = () => {
     }
   }, [fetchdata]);
 
+
+
   // FORM
   const formik = useFormik({
     initialValues: {
       studentName: "",
-      registrationNo: "",
       class: "",
       admissionDate: "",
       discountPercentage: "",
@@ -68,10 +69,17 @@ const AddStudent = () => {
     },
     validationSchema: StudentFormSchema,
     onSubmit: (values, { resetForm }) => {
-      setData("http://localhost:4000/api/form/students", values, "students");
+      const newRegistrationNo = generateRegistrationNo();
+      const updatedValues = {
+        ...values,
+        registrationNo: newRegistrationNo,
+      };
+    
+      setData("http://localhost:4000/api/form/students", updatedValues, "students");
       resetForm();
     },
   });
+
 
   return (
     <>
@@ -98,14 +106,7 @@ const AddStudent = () => {
                 isRequired={true}
                 formik={formik}
               />
-              <RenderInput
-                name="registrationNo"
-                type="number"
-                placeholder="Registration Number"
-                label="Registration Number"
-                isRequired={true}
-                formik={formik}
-              />
+              
               <RenderSelect
                 name="class"
                 options={selectData}

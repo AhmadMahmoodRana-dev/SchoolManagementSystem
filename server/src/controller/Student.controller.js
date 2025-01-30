@@ -22,6 +22,7 @@ export const PostStudent = async (req, res) => {
       password,
       role: "Students",
       employeeId: newStudent._id,
+      registrationNo:newStudent.registrationNo
     });
 
     await newUser.save();

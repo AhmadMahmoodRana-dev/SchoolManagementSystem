@@ -2,9 +2,6 @@ import * as Yup from "yup";
 
 const StudentFormSchema = Yup.object().shape({
   studentName: Yup.string().required("Student name is required"),
-  registrationNo: Yup.number()
-    .typeError("Registration number must be a number")
-    .required("Registration number is required"),
   class: Yup.string().required("Class is required"),
   admissionDate: Yup.string().required("Admission date is required"),
   discountPercentage: Yup.number()
