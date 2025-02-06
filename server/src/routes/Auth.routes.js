@@ -29,9 +29,8 @@ auth.post("/login", async (req, res) => {
     res.json({
       token,
       user: {
-        id: user._id,
+        id: user.employeeId,
         username: user.username,
-        name: user.name,  // Assuming you have a name field
         role: user.role,
       },
     });
